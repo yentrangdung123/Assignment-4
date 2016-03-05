@@ -21,13 +21,18 @@ public class WordLadderSolver implements Assignment4Interface
 		// create dictionary and graph of dictionary
 		long beginTest;
 		long endTest;
+		
+		System.out.println("Loading Dictionary ... ");
 		myDictionary = new Dictionary();
     	myDictionary.createDictionary(fileName);
+    	System.out.println("Dictionary loaded!");
+    	
+    	System.out.println("Creating graph of dictionary words ...");
     	myGraph = new Graph();
     	beginTest = System.nanoTime();
 		myGraph.createGraph(myDictionary.getDictionaryWords());
 		endTest = System.nanoTime();
-		System.out.println("Creating the graph took: " + (endTest - beginTest) + " ns");
+		System.out.println("Graph Created! (Time needed: " + (endTest - beginTest) + " ns)\n");
 	}
 	
 	
@@ -65,27 +70,8 @@ public class WordLadderSolver implements Assignment4Interface
     	}
     	
     	myWordLadder = wordLadder;
-    	printWordLadder (startWord, endWord);
     	
     	return true;
-    }
-    
-    
-    // prints the word ladder if it exists - (uses myWordLadder)
-    public void printWordLadder (String start, String end)
-    {
-    	if (!myWordLadder.isEmpty())
-    	{
-    		System.out.println("For the input words, " + start + " and " + end + ", the following word ladder"
-    							+ " was found:\n");
-    		
-    		for (int i = 0; i < myWordLadder.size(); i++)
-    		{
-    			System.out.println(myWordLadder.get(i));
-    		}
-    		
-    		System.out.print("\n**********\n");
-    	}
     }
 }
 

@@ -36,7 +36,7 @@ public class Assign4Driver
             	List<String> result = wordLadderSolver.computeLadder(startWord, endWord);
                 boolean correct = wordLadderSolver.validateResult(startWord, endWord, result);
                 endTime = System.nanoTime();
-                System.out.println("Total runtime in (ns): " + (endTime - startTime) + "\n"); 	
+                if (correct) printWordLadder (startWord, endWord, result, startTime, endTime);
             }
         } 
         
@@ -79,5 +79,23 @@ public class Assign4Driver
 		}
     	
     	return result;
+    }
+    
+    // prints the word ladder if it exists - (uses myWordLadder)
+    public static void printWordLadder (String start, String end, List<String> myWordLadder, long startTime, long endTime)
+    {
+    	if (!myWordLadder.isEmpty())
+    	{
+    		System.out.println("For the input words, " + start + " and " + end + ", the following word ladder"
+    							+ " was found:\n");
+    		
+    		for (int i = 0; i < myWordLadder.size(); i++)
+    		{
+    			System.out.println(myWordLadder.get(i));
+    		}
+    		
+            System.out.println("\nTotal runtime in (ns): " + (endTime - startTime) + "\n"); 	
+    		System.out.print("**********\n\n");
+    	}
     }
 }
