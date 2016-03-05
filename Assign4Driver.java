@@ -81,7 +81,7 @@ public class Assign4Driver
     	return result;
     }
     
-    // prints the word ladder if it exists - (uses myWordLadder)
+    // prints the word ladder if it exists 
     public static void printWordLadder (String start, String end, List<String> myWordLadder, long startTime, long endTime)
     {
     	if (!myWordLadder.isEmpty())
