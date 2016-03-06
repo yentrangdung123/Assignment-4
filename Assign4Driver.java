@@ -20,6 +20,10 @@ public class Assign4Driver
     {
     	String startWord;
         String endWord;
+		if (args.length != 2) {
+			System.err.println("Error: Incorrect number of command line arguments");
+			System.exit(-1);
+		}
     	String dictFile = args[0];
     	String inputFile = args[1];
     	
@@ -35,8 +39,7 @@ public class Assign4Driver
             	String line = inputs.get(i);
             	String[] entries = line.split("[\\s]+");
             	if(entries.length != 2){
-            		System.err.flush();
-            		throw new TooFewInputException("There are too few or too many inputs " + "\n**********\n");
+            		throw new TooFewInputException("There are too few or too many inputs in line " + line + "\n**********\n");
             	}
             	startWord = entries[0];
             	endWord = entries[1];
@@ -55,6 +58,8 @@ public class Assign4Driver
             catch (TooFewInputException e) 
             {
                 //e.printStackTrace();
+            	System.out.flush();
+            	System.err.flush();
                 System.err.println(e);
             }
         } 
