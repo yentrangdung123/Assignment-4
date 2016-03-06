@@ -34,7 +34,9 @@ public class Assign4Driver
             try {
             	String line = inputs.get(i);
             	String[] entries = line.split("[\\s]+");
-            	
+            	if(entries.length != 2){
+            		throw new TooFewInputException("There are too few or too many inputs");
+            	}
             	startWord = entries[0];
             	endWord = entries[1];
             	
@@ -44,8 +46,12 @@ public class Assign4Driver
                 endTime = System.nanoTime();
                 if (correct) printWordLadder (startWord, endWord, result, startTime, endTime);
             }
-            
             catch (NoSuchLadderException e) 
+            {
+                //e.printStackTrace();
+                System.err.println(e);
+            }
+            catch (TooFewInputException e) 
             {
                 //e.printStackTrace();
                 System.err.println(e);
@@ -94,12 +100,12 @@ public class Assign4Driver
     	{
     		System.out.println("For the input words, " + start + " and " + end + ", the following word ladder"
     							+ " was found:\n");
-    		
+    		String word = "";
     		for (int i = 0; i < myWordLadder.size(); i++)
     		{
-    			System.out.println(myWordLadder.get(i));
+    			word = word.concat(myWordLadder.get(i) + " ");
     		}
-    		
+    		System.out.println(word);
             System.out.println("\nTotal runtime in (ns): " + (endTime - startTime) + "\n"); 	
     		System.out.print("**********\n\n");
     	}
