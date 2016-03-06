@@ -1,12 +1,14 @@
 /*
-    Bharat Kulkarni - bsk524
+    Project   :  Assignment 4
+    Written by:  Bharat Kulkarni - bsk524
+    			 Dung Le - dkl524
+    Completed :	 03/06/16
  */
 
 package assignment4;
 
 import java.util.List;
 
-// do not change class name or interface it implements
 public class WordLadderSolver implements Assignment4Interface
 {	
     // dictionary and graph (underlying structures)
@@ -48,12 +50,14 @@ public class WordLadderSolver implements Assignment4Interface
     		
     		throw new NoSuchLadderException ("At least one of the words " + startWord +
     										 " and " + endWord + " is not a legitimate 5-letter word "
-    										 + "from the dictionary");
+    										 + "from the dictionary"
+    										 + "\n**********\n");
     	}
     	
     	wordLadder = myGraph.computeBFS(startWord, endWord, words);
     	if (wordLadder.isEmpty()) throw new NoSuchLadderException ("For the input words, " + startWord + " and "
-    			                                                    + endWord + "\nNo word ladder exists!");
+    			                                                    + endWord + "\nNo word ladder exists!"
+    			                                                    + "\n**********\n");
 
 		return wordLadder;
     }

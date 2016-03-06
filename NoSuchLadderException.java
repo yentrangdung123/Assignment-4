@@ -1,3 +1,10 @@
+/*
+    Project   :  Assignment 4
+    Written by:  Bharat Kulkarni - bsk524
+    			 Dung Le - dkl524
+    Completed :	 03/06/16
+ */
+
 package assignment4;
 
 public class NoSuchLadderException extends Exception

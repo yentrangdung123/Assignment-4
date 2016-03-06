@@ -1,3 +1,10 @@
+/*
+    Project   :  Assignment 4
+    Written by:  Bharat Kulkarni - bsk524
+    			 Dung Le - dkl524
+    Completed :	 03/06/16
+ */
+
 package assignment4;
 
 import java.io.BufferedReader;
@@ -19,15 +26,14 @@ public class Assign4Driver
         Assignment4Interface wordLadderSolver = new WordLadderSolver (dictFile);
         List<String> inputs = extractWordPairs (inputFile);
         
-        try 
+        for (int i = 0; i < inputs.size(); i++) 
         {
         	long startTime = 0;
             long endTime = 0;
             
-        	for (int i = 0; i < inputs.size(); i++)
-            {
+            try {
             	String line = inputs.get(i);
-            	String[] entries = line.split("[\\s]");
+            	String[] entries = line.split("[\\s]+");
             	
             	startWord = entries[0];
             	endWord = entries[1];
@@ -38,13 +44,13 @@ public class Assign4Driver
                 endTime = System.nanoTime();
                 if (correct) printWordLadder (startWord, endWord, result, startTime, endTime);
             }
+            
+            catch (NoSuchLadderException e) 
+            {
+                //e.printStackTrace();
+                System.err.println(e);
+            }
         } 
-        
-        catch (NoSuchLadderException e) 
-        {
-            //e.printStackTrace();
-            System.err.println(e);
-        }
     }
     
     
