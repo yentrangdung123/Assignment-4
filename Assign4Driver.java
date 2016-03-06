@@ -35,7 +35,8 @@ public class Assign4Driver
             	String line = inputs.get(i);
             	String[] entries = line.split("[\\s]+");
             	if(entries.length != 2){
-            		throw new TooFewInputException("There are too few or too many inputs");
+            		System.err.flush();
+            		throw new TooFewInputException("There are too few or too many inputs " + "\n**********\n");
             	}
             	startWord = entries[0];
             	endWord = entries[1];
